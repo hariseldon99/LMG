@@ -97,9 +97,10 @@ H^{(RWA)}_k=f_k \sigma^z + 2 J_0(\eta)\Delta_k\sigma^x.
 Clearly, if we adjust drive parameters such that $\eta$ lies on a root of $J_0(\eta)$, then $\sigma^z$ becomes a conserved quantity. A particular Floquet mode of the Hamiltonian can, in general, be written as $|\phi\rangle = \prod_{k,-k}|\phi^n_k\rangle$. In the RWA limit and in the regime where $J_0(\eta)$ vanishes, $|\phi^n_k\rangle$ has values of $|0\rangle, |k,-k\rangle$ for two values of $n=0,1$ respectively.
 
 We define the reduced IPR of $|\phi^n_k\rangle\; \forall k$ to be
-\begin{equation*}
+\begin{equation}
+\label{eq:redipr:ising}
 \phi^{(n)}_{IPR}(k) = \left\vert \langle 0 |\phi^n_k\rangle  \right\vert^4 + \left\vert \langle +k, -k |\phi^n_k\rangle  \right\vert^4,
-\end{equation*}
+\end{equation}
 where $n=0,1$. In the RWA limit, when $J_0(eta)$ vanishes, this quantity is unity, indicating low participation and high degree of localization.
 
 
@@ -109,7 +110,7 @@ The code cell below plots $\phi^n_{IPR}(k)$ for the full exact dynamics, with di
 \begin{figure}[]
 \centering
 \includegraphics[height = 5cm, width = 12cm]{ising_exact_ipr.jpeg}
-\caption{The plots above are for the exact dynamics of the TFIM in Fermionic representation for size N = 100, with the reduced IPR plotted for the entire Brillouin zone for a few drive amplitudes. The frequency is set to $\omega = 90$ and the IPR of one of the two Floquet modes are plotted at time $t=T$ for four different chosen amplitudes. The exact result is consistent with the RWA approximation. When $J_0(2h/\omega) = 0$, the RWA Hamiltonian vanishes, yielding an IPR of unity. At other points, the IPR is unity only when $k=\pm \pi$ (since $\Delta_k=0$) and $k=0$ (since $f_k = 0$ and the Hamiltonian for each $k$ $\sim \sigma_x$); other than that, there is delocalization due to the ensuing dynamics.}
+\caption{The plots above are for the exact dynamics of the TFIM in Fermionic representation for size N = 100, with the reduced IPR (defined in equation~\ref{eq:redipr:ising}) plotted for the entire Brillouin zone for a few drive amplitudes. The frequency is set to $\omega = 90$ and the IPR of one of the two Floquet modes are plotted at time $t=T$ for four different chosen amplitudes. The exact result is consistent with the RWA approximation. When $J_0(2h/\omega) = 0$, the RWA Hamiltonian vanishes, yielding an IPR of unity. At other points, the IPR is unity only when $k=\pm \pi$ (since $\Delta_k=0$) and $k=0$ (since $f_k = 0$ and the Hamiltonian for each $k$ $\sim \sigma_x$); other than that, there is delocalization due to the ensuing dynamics.}
 \end{figure}
 
 Finally, let us look at quantitative comparisons between the exact result and the RWA result.  We compare IPR's of the Floquet modes obtained with the zeroth and first order terms in the RWA expansion with the exact case. The three Hamiltonians whose Floquet modes are to be compared are
@@ -341,6 +342,37 @@ We contrast the Floquet-IPR behaviour of both the periodically driven Ising mode
 
 Hence, we adiabatically vary $\omega, h$ in the LMG model, subject to the constraint that $\eta=4h/\omega$ is kept at a root of $J_0(\eta)$, there we found a crossover or phase transition from almost totally thermal to totally localized behaviour (fig 8). Even if we relax the constraint, there is a macroscopic change in behaviour from thermal to athermal. At low frequency regime IPR founds to be decreasing with scaling in system size N and when N is large i.e. $\rightarrow{}\infty$ IPR appears to vanish, thereby fully thermalized state at $\eta=4h/\omega$.  This contrasts with the Ising model, where no such transition appears. Thus, the inclusion of long-range interactions seems to induce a transition from thermal to localized phase, a feature that will prove useful in designing MBL engines.
 
+\section{Conclusion and Outlook}
+
+Points to enter
+\begin{itemize}
+	\item We have investigated the following
+	\begin{enumerate}
+		\item The onset of Dynamical Many Body Localization in periodically driven long-range spins.
+		\item  using LMG as the paradigmatic example.
+		\item Localization parametrized by the Inverse participation ratio of Floquet eigenstates.
+		\item Numerically contrasted IPR of the LMG model with that of the TFIM for low and high drive frequencies.
+		\item Phase space dynamics of the LMG model to investigate the onset of thermal behavior at low frequencies and localization at high frequencies. 
+		\item Analytically investigate the onset of additional approximately conserved quantities in the high-frequency regime for both models.
+	\end{enumerate}
+\item Our conclusions:
+\begin{enumerate}
+	\item Long-range spins show strong localization in spin co-ordinate space for the LMG model when drive frequency $\omega \gg J$, where $J$ is the spin exchange energy. The localization occurs at specific resonances of the drive frequency and amplitude $h$, \textit{i.e.} when  $J_0(4h/\omega)=0$ for the LMG. 
+	\item While similar localization (in momentum space) has been observed for the TFIM case at resonances given by $J_0(2h/\omega)=0$, the mechanism is different in long range systems due to the fact that a different observable ($(S^x)^2$ where $\mathbf{S}$ is the total spin) is approximately conserved in the LMG case.
+	\item Once the accidental degeneracy is removed by a DC transverse field that goes as $\sim S^x$, the eigenstates can be mapped to a co-ordinate representation, leading to strong spatial localization.
+	\item In addition, we have observed a strong mobility edge in the periodically driven LMG model as the frequency is adiabatically increased from $\omega \sim J$ to $\omega \gg J$. In the former regime, the onset of  dynamical chaos in the classical dynamics ensures that the quantum system eventually thermalizes at infinite temperature. However, this is indefinitely delayed in the latter regime due to dynamical localization.
+	\item 
+	The mobility edge between these regimes shows singular behavior in the thermodynamic limit, suggesting a quantum phase transition between them. This is not present in the short-range TFIM, where the IPR is too large in the low-frequency limit to induce thermal behavior.
+	\item Thus, Floquet engineering in long-range systems is sufficient to induce Thermal and MBL states, and disorder is not required. 
+\end{enumerate}
+
+\item Outlook:
+\begin{enumerate}
+	\item We have looked at clean systems with high symmetry. The addition of integrability-breaking terms (such as disorder) should induce thermalization in all cases, but, analogous to the TFIM case (cite literature), thermalization in LMG should be delayed significantly when $\omega \gg J$ and $J_0(4h/\omega)=0$.
+	\item Numerical investigations in intermediate-range spins (write Hamiltonian - $0< \beta < \infty$) using approximate methods 
+	\item The phase transition allows the operation of an MBL engine in the LMG case, with a Thermodynamic cycle operating between the thermal and MBL regimes. Investigate diabatic corrections.
+\end{enumerate}
+\end{itemize}
 
 
 
