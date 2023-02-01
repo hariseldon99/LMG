@@ -113,32 +113,46 @@ PROOFREADING THIS NOW.
 
 If a generic closed isolated interacting quantum many-body system is prepared in a state that is far enough from equilibrium, the ensuing dynamics is expected to reproduce the statistical behaviour of a microcanonical ensemble. The long-term averages of observables, resolved in the framework of the Eigenstate Thermalization Hypothesis (ETH), provide evidence for this. Let the system be described by a Hamiltonian $\hat{H}$, and be populated at an initial state $\ket{\Psi_0}$ at $t=0$. The expectation value of an observable $\hat{O}$ can be obtained at all times by solving the Heisenberg equation of motion
 \begin{equation}
-\dv{t}\;\ev{\hat{O}(t)} = i \ev{\comm\Big{\hat{H}}{\hat{O}(t)}}.
+	\dv{t}\;\ev{\hat{O}(t)} = i \ev{\comm\Big{\hat{H}}{\hat{O}(t)}}.
 \end{equation}
 The solution can be written as
 \begin{align}
-\expval{\hat{O}(t)} &= \expval{ e^{i\hat{H}t}\hat{O}e^{-i\hat{H}t}}\nonumber\\
-&= \sum_{ij}e^{-i\big(e_i-e_j\big)t}\;O_{ij}\;\ip{\Psi_0}{e_i}\ip{e_j}{\Psi_0}.
+	\expval{\hat{O}(t)} &= \expval{ e^{i\hat{H}t}\hat{O}e^{-i\hat{H}t}}\nonumber\\
+	&= \sum_{ij}e^{-i\big(e_i-e_j\big)t}O_{ij}\ip{\Psi_0}{e_i}\ip{e_j}{\Psi_0}
 \end{align}
 Here, the reduced Planck's constant $\hbar$ has been set to unity. Furthermore, the eigendecomposition of $\hat{H}$ yields eigenvalues $e_i$ and corresponding eigenvectors $\ket{e_i}$, indexed by a count $i$, and are expected to be non-degenerate. Also, the matrix element $O_{ij}\equiv \mel{e_i}{\hat{O}}{e_j}$. If the long-time average of an object is expressed by an overline, then
 \begin{align}
-\overline{\ev{\hat{O}(t)}} &= \sum_{ij}\overline{e^{-i\big(e_i-e_j\big)t}}\;\;O_{ij}\; \ip{\Psi_0}{e_i}\ip{e_j}{\Psi_0}.\nonumber\\
-\label{eq:eth:diagonal:avg}
-&\approx\sum_i O_{ii}\big\vert \ip{e_i}{\Psi_0} \big\vert^2,
+	\overline{\ev{\hat{O}(t)}} &= \sum_{ij}\overline{e^{-i\big(e_i-e_j\big)t}}O_{ij} \ip{\Psi_0}{e_i}\ip{e_j}{\Psi_0}.\nonumber\\
+	&\approx\sum_i O_{ii} \abs\Big{ \ip{e_i}{\Psi_0}}^2
+	\label{eq:eth:diagonal:avg}
 \end{align}
-since, for sufficiently long times, $\overline{e^{-i\big(e_i-e_j\big)t}}\rightarrow \delta_{ij}$. If we now assume that  the resolution of $\ket{\Psi_0}$ in the eigenbasis of the Hamiltonian is 'typical', \textit{i.e.}, the dominant modes have energies that lie in a small but nonzero neighbourhood $\delta E$ of the initial energy $E_0 = \expval{\hat{H}}{\Psi_0}$, and $E_0$ is substantially greater than the ground state energy, then we can reasonably simplify the \textit{diagonal average} in equation~\ref{eq:eth:diagonal:avg} further to yield
+since, for sufficiently long times, $\overline{e^{-i\big(e_i-e_j\big)t}}\rightarrow \delta_{ij}$. If we now assume that  the resolution of $\ket{\Psi_0}$ in the eigenbasis of the Hamiltonian is `typical', \textit{i.e.}, the dominant modes have energies that lie in a small but nonzero neighbourhood $\delta E$ of the initial energy $E_0 = \expval{\hat{H}}{\Psi_0}$, and $E_0$ is substantially greater than the ground state energy, then we can reasonably simplify the \textit{diagonal average} in equation~\ref{eq:eth:diagonal:avg} further to yield
 \begin{align}
+	\label{eq:eth:sumek}
+	\overline{\ev{\hat{O}(t)}} &\approx \sum_{\ket{e_k}\in \mathcal{S}(E_0, \delta E)}O_{kk}\abs{\ip{e_k}{\Psi_0}}^2 \\
 	\label{eq:eth:final}
-\overline{\ev{\hat{O}(t)}} &\approx \sum_{\ket{e_k}\in \mathcal{S}(E_0, \delta E)}O_{kk}\big\vert \ip{e_i}{\Psi_0} \big\vert^2\nonumber\\
-&\approx O(E_0) \sum_{\ket{e_k}\in \mathcal{S}(E_0, \delta E)}\big\vert \ip{e_i}{\Psi_0} \big\vert^2 = O(E_0).
+	&\approx O(E_0) \sum_{\ket{e_k}\in \mathcal{S}(E_0, \delta E)}\abs{ \ip{e_k}{\Psi_0}}^2 = O(E_0)
 \end{align}
 Here, $O(E_0)$ is a sufficiently smooth function that represents $O_{kk}$ in the summed sector $\mathcal{S}(E_0, \delta E)$, given by the the states $\ket{e_k}$ whose energies lie in a $\delta E-$neighbourhood of $E_0$, \textit{i.e} 
 \begin{equation}
-\mathcal{S}(E_0, \delta E) = \Bigg\{\ket{e_k}\ni E_0-\frac{\delta E}{2}\leq e_k \leq E_0+\frac{\delta E}{2}\Bigg\}.
+	\mathcal{S}(E_0, \delta E) = \Bigg\{\ket{e_k}\ni E_0-\frac{\delta E}{2}\leq e_k \leq E_0+\frac{\delta E}{2}\Bigg\}\nonumber
 \end{equation}
 The quantity $O(E_0)$ should be close to an average of $O_{kk}$ over the states in $\mathcal{S}(E_0, \delta E)$, if the variation of $O_{kk}$ w.r.t $E_0$ is smooth enough and the sector is large enough to allow for a continuum limit, followed by an application of the Lagrange Mean Value Theorem. This is the \textit{Eigenstate Thermalization Hypothesis} (ETH), first proposed by Deutsch~\cite{Deutsch1991} and presented in this form by Srednicki~\cite{Srednicki1994}. That this average corresponds to a thermal ensemble average can be inferred from the lack of dependency on the initial condition $\ket{\Psi_0}$ allowing for all typical configurations at $t=0$ to reach this value despite the lack of any ergodicity in the Heisenberg dynamics.
 
-Now, if the many body system is driven time-periodically long enough, the dynamics is expected to produce thermal behaviour at infinite temperature. If the system is strobed at integer multiples of the time period $T$, \emph{Floquet Theory} allows us to obtain \textit{quasi-stationary states} from the eigendecomposition of the Floquet Hamiltonian $\hat{H}_F\equiv \hat{H}(T) - i \frac{\partial}{\partial t}\vert_T$, where $\hat{H}(t)$ is the new time-periodic Hamiltonian (GET SEMINAL REFS). In that case, the ETH introduced in equations~\ref{eq:eth:diagonal:avg} and~\ref{eq:eth:final} may be reproduced with $e_i, \ket{e_i}$ replaced by the eigendecomposition of $\hat{H}_F$, given by $\Omega_i,\; \ket{\Omega_i}$. However, note that the $\Omega_i$s are heavily dependent on drive parameters, such as amplitude, frequency, and duty-cycle. Thus, these parameters can be tuned to induce high levels of degeneracy in the quasienergies. In those eccentric cases,  some of the $\overline{e^{-i\big(\Omega_i-\Omega_j\big)t}}-$terms will vanish, and never reach $\delta_{ij}$. In the extreme case when most or all quasienergies are degenerate , the diagonal average values are dynamically suppressed, leading to highly athermal behaviour, commonly characterized as  \textit{Many Body Freezing} (GOTTA PUT ARNAB's 2012 PAPER and OUR 2014 PAPER HERE). 
+Now, if the many body system is driven time-periodically long enough, the dynamics is expected to produce thermal behaviour at infinite temperature. If the system is strobed at integer multiples of the time period $T$, \emph{Floquet Theory} allows us to obtain \textit{quasi-stationary states} (stationary only at integer multiples of time period $T$) from the eigendecomposition of the Floquet Hamiltonian $\hat{H}_F\equiv \hat{H}(T) - i \frac{\partial}{\partial t}\vert_T$, where $\hat{H}(t)$ is the new time-periodic Hamiltonian (GET SEMINAL REFS). In that case, the ETH introduced in equations~\ref{eq:eth:diagonal:avg} and~\ref{eq:eth:sumek} may be modified with $e_i, \ket{e_i}$ replaced by the eigendecomposition of $\hat{H}_F$, given by $\Omega_i,\; \ket{\phi_i}$, provided that $T$ is sufficiently small to ignore the Floquet micromotion. Thus,
+\begin{align}
+	\overline{\ev{\hat{O}(nT)}} &\approx \sum_{ij}\overline{e^{-i\big(\Omega_i-\Omega_j\big)nT}}O_{ij} \ip{\Psi_0}{\phi_i}\ip{\phi_j}{\Psi_0}.\nonumber\\
+	&\approx\sum_i O_{ii} \abs\Big{ \ip{\phi_i}{\Psi_0}}^2\approx \sum_{\ket{\phi_k}\in \mathcal{S}^\prime(\Omega_0, \delta \Omega)}O_{kk}\abs{\ip{\phi_k}{\Psi_0}}^2,
+	\label{eq:floquet:eth:diagonal:avg}
+\end{align}
+where the new set
+\begin{equation}
+	\mathcal{S}^\prime(\Omega_0, \delta \Omega) = \Bigg\{\ket{\phi_k}\ni \Omega_0-\frac{\delta \Omega}{2}\leq \Omega_k \leq \Omega_0+\frac{\delta \Omega}{2}\Bigg\},\nonumber
+\end{equation}
+and the quantities $\Omega_0, \delta\Omega$ are obtained by adding integer multiples of $\omega=2\pi/T$ to $E_0, \delta E$ to make them lie within a Floquet photon \textit{viz.} an interval of width $\omega$.
+
+However, note that, even in this limit, the $\phi_i$s are heavily dependent on drive parameters, such as amplitude, frequency, and duty-cycle. Thus, these parameters can be tuned to  make $O_{kk}$ in equation~\ref{eq:floquet:eth:diagonal:avg} weakly dependent on $\ket{\phi_k}$, but make the initial quasi energy $\Omega_0$ heavily dependent on $\ket{\phi_k}$. In particular, the functional derivative $\var{\Omega_0\big[\ket{\phi_k}\big]}$ can be made arbitrarily large. In that case, the simplification of equation~\ref{eq:eth:sumek} that led to equation~\ref{eq:eth:final} can no longer be justified in equation~\ref{eq:floquet:eth:diagonal:avg}. Thus, thermalization is dynamically suppressed by \textit{Floquet Engineering} of the quasienergies. This athermal behaviour is called \textit{Many Body Localization} (GOTTA PUT ARNAB's 2012 PAPER and OUR 2014 PAPER HERE). 
+
 
 NOW, WE GOTTA SAY THAT THIS 'FREEZING' IS SHOWN FOR SHORT RANGE INTERACTIONS LIKE TFIM, BUT IS NOT, IN GENERAL, THE SAME AS MBL, SINCE THERE IS NO PHASE TRANSITION FROM ETH TO MBL (THERE IS NO ETH IN TFIM).
 
